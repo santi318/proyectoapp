@@ -20,7 +20,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 
-
 @Named(value="gestionUsuario")		//JEE8
 @SessionScoped				        //JEE8
 public class GestionUsuarioBean implements Serializable{
