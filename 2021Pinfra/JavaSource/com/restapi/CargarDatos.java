@@ -40,22 +40,22 @@ public class CargarDatos extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		try {
-			UsuarioEmpresa e= new UsuarioEmpresa("Diego", "Silvera","52315623","diego.silvera","123456","UTEC","Estudiante","diego.silvera@estudiantes.utec.edu.uy","Común");
-			e.setActivo(true);
+			UsuarioEmpresa e= new UsuarioEmpresa("Diego", "Silvera","52315623","diego.silvera","123456","UTEC","Estudiante","diego.silvera@estudiantes.utec.edu.uy","Común","false");
+			
 			UsuarioEmpresa usuarioCreado = usuariosEmpresaDAO.agregarUsuario(e);
 			out.println("Se creo el usuario:"+ usuarioCreado.getId()+" Nombre"+usuarioCreado.getNombre());
 			
-			e=new UsuarioEmpresa("Santiago", "Medina","22568548","santiago.medina","123456","UTEC","Técnico Informático","santiago.medina@utec.edu.uy","Empleado");
-			e.setActivo(true);
+			e=new UsuarioEmpresa("Santiago", "Medina","22568548","santiago.medina","123456","UTEC","Técnico Informático","santiago.medina@utec.edu.uy","Empleado","true");
+
 			usuarioCreado = usuariosEmpresaDAO.agregarUsuario(e);
 			out.println("Se creo el usuario:"+ usuarioCreado.getId()+" Nombre"+usuarioCreado.getNombre());
 			
-			e=new UsuarioEmpresa("Agustin", "Azziz","47046538","agustin.azziz","123456","UTEC","Técnico Informático","agustin.azziz@utec.edu.uy","Administrador");
-			e.setActivo(true);
+			e=new UsuarioEmpresa("Agustin", "Azziz","47046538","agustin.azziz","123456","UTEC","Técnico Informático","agustin.azziz@utec.edu.uy","Administrador","true");
+
 			usuarioCreado = usuariosEmpresaDAO.agregarUsuario(e);
 			out.println("Se creo el usuario:"+ usuarioCreado.getId()+" Nombre"+usuarioCreado.getNombre());
 			
-			//asdasd
+			
 			
 			out.println("Se creo el usuario:"+ usuarioCreado.getId());
 			

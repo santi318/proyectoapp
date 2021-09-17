@@ -10,7 +10,7 @@
    	<div style="background-color: #809fff;padding: 12px">
 		<span
 			style="color: white; font-size: 180%; font-family: Arial; margin: 20px">
-			Sistema de Gestion de Usuarios</span>
+			Aplicación IAGRO</span>
 
 	</div>
    	
@@ -19,26 +19,33 @@
     <p:growl id="messages"/>
      <p:menubar>
  		
-        <p:submenu label="Gestion de Usuarios" icon="ui-icon-document">
+ 		
+ 		   <p:menuitem value="Página principal" icon="ui-icon-document" action="principal.xhtml">
+           
+        </p:menuitem>
+ 		
+        <p:submenu label="Gestion de Usuarios" icon="ui-icon-document" rendered="#{gestionUsuarios.rolAdmin()}">
             <p:menuitem value="Seleccion de usuario"   outcome="/pages/Usuarios.xhtml" />
             <p:menuitem value="Alta de usuario" outcome="/pages/DatosUsuario.xhtml"  >
             	<f:param name="id" value="" />
     			<f:param name="modalidad" value="insert" />
             </p:menuitem>
         </p:submenu>
+        
+         <p:submenu label="Gestion de Formularios" icon="ui-icon-document">
+           
+        </p:submenu>
+        <p:submenu label="Gestion de Actividades" icon="ui-icon-document">
+           
+        </p:submenu>
  
     
        
+ 		<p:menuitem value="Logout" url="login.xhtml" icon="ui-icon-close"  />
  
-    
  
-    
+
  
-      
- 
- 		<p:menuitem value="Quit" url="/" icon="ui-icon-close" />
- 
-        
     </p:menubar>
 </h:form>
  

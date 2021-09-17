@@ -93,7 +93,7 @@ public class UsuariosEmpresaDAO {
 
 
 	public List<UsuarioEmpresa> seleccionarUsuarios(String criterioNombre,
-			String criterioRol, Boolean criterioActivo) throws PersistenciaException {
+			String criterioRol, String criterioActivo) throws PersistenciaException {
 		try {
 			
 			String query= 	"Select e from UsuarioEmpresa e  ";
@@ -104,10 +104,10 @@ public class UsuariosEmpresaDAO {
 			if (criterioRol!=null && ! criterioRol.equals("")) {
 				queryCriterio+=(!queryCriterio.isEmpty()?" and ":"")+" e.rolUsuario='"+criterioRol+"'  " ;
 			}
-			/*
-			if (criterioActivo!=null) {
-				queryCriterio+=(!queryCriterio.isEmpty()?" and ":"")+" e.activo  " ;
-			}*/
+			
+			if (criterioActivo!=null && ! criterioActivo.equals("")) {
+				queryCriterio+=(!queryCriterio.isEmpty()?" and ":"")+" e.activo ='"+criterioActivo+"' " ;
+			}
 			if (!queryCriterio.contentEquals("")) {
 				query+=" where "+queryCriterio;
 			}
@@ -124,7 +124,7 @@ public class UsuariosEmpresaDAO {
 			UsuarioEmpresa resultUser = null;
 			List <UsuarioEmpresa> resultList;
 			
-			resultList = this.seleccionarUsuarios("","",true);
+			resultList = this.seleccionarUsuarios("","","true");
 			
 			for (UsuarioEmpresa listRecorrida : resultList) {
 				if (listRecorrida.getContrasenia().equals(contrasenia) && listRecorrida.getUsuarioCuenta().equals(usuario)){

@@ -7,6 +7,7 @@ import javax.enterprise.context.SessionScoped;	//JEE8
 import javax.inject.Named;
 import com.capa2LogicaNegocio.GestionUsuarioService;
 import com.capa2LogicaNegocio.Usuario;
+import com.entities.UsuarioEmpresa;
 import com.exception.PersistenciaException;
 
 
@@ -30,15 +31,19 @@ public class GestionUsuariosBean implements Serializable{
 	private String contrasenia;
 	private String criterioNombre;
 	private String criterioRol;
-	private Boolean criterioActivo;
+	private String criterioActivo;
+	private String rol;
+	private UsuarioEmpresa usuarioEncontrado = new UsuarioEmpresa();
+	GestionUsuarioBean gUB= new GestionUsuarioBean();
 	
 	private List<Usuario> usuariosSeleccionados;
 	private Usuario usuarioSeleccionado;
 	public GestionUsuariosBean() {
 		super();
 	}
-	
-	// ********Acciones****************************
+	/***********************************************************
+	************************Acciones****************************
+	************************************************************/
 	public String seleccionarUsuarios() throws PersistenciaException {
 		usuariosSeleccionados=gestionUsuarioService.seleccionarUsuarios(criterioNombre, criterioRol, criterioActivo);
 		return "";
@@ -48,6 +53,67 @@ public class GestionUsuariosBean implements Serializable{
 	public String verDatosUsuario() {
 		//Navegamos a datos usuario
 		return "DatosUsuario";
+	}
+	
+	public String inicioSesion () {
+		String redireccion = null;
+		
+		
+		try {
+			usuarioEncontrado = gestionUsuarioService.buscarInicioSesion(nomUser, contrasenia);
+			
+			if (usuarioEncontrado !=null) {
+				
+			rol=usuarioEncontrado.getRolUsuario();
+			redireccion="principal";
+			
+			}
+			else {
+			
+			}
+		}catch (Exception e) {
+			
+		}
+		return redireccion;
+		
+	}
+	
+	
+	//Metodos rol
+	
+	
+	
+	
+	/////////////// ROL ADMIN
+	public String rolAdmin () {
+		String render="false";
+		
+		if (rol.equals("Administrador")) {
+			render="true";
+		}
+		
+		
+		
+		
+		
+		return render;
+	}
+
+	/////////////// ROL EMPLEADO
+	public String rolEmpleado () {
+		String render;
+		
+		if (rol.equals("Empleado")) {
+			render="true";
+		}
+		else {
+			render="false";
+		}
+		
+		
+		
+		
+		return render;
 	}
 	
 	// ******** Getters & Setters****************************
@@ -82,10 +148,10 @@ public class GestionUsuariosBean implements Serializable{
 	public void setCriterioRol (String criterioRol) {
 		this.criterioRol = criterioRol;
 	}
-	public Boolean getCriterioActivo() {
+	public String getCriterioActivo() {
 		return criterioActivo;
 	}
-	public void setCriterioActivo(Boolean criterioActivo) {
+	public void setCriterioActivo(String criterioActivo) {
 		this.criterioActivo = criterioActivo;
 	}
 	public List<Usuario> getUsuariosSeleccionados() {
@@ -103,17 +169,7 @@ public class GestionUsuariosBean implements Serializable{
 		this.usuarioSeleccionado = usuarioSeleccionado;
 	}
 	
-	public String inicioSesion (String user, String contrasenia) {
-		String redireccion = null;
-		try {
-			gestionUsuarioService.buscarInicioSesion(user, contrasenia);
-			redireccion="Usuarios";
-		}catch (Exception e) {
-			
-		}
-		return redireccion;
-		
-	}
+
 	
 	
 	

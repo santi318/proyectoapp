@@ -80,7 +80,7 @@ public class GestionUsuarioService implements Serializable{
 	}
 
 
-	public List<Usuario> seleccionarUsuarios(String criterioNombre,String criterioRol,Boolean criterioActivo) throws PersistenciaException {
+	public List<Usuario> seleccionarUsuarios(String criterioNombre,String criterioRol,String criterioActivo) throws PersistenciaException {
 		//buscamos usuarios segun criterio indicado
 		List<UsuarioEmpresa> listaUsuariosEmpresa = usuariosPersistenciaDAO.seleccionarUsuarios(criterioNombre,criterioRol,criterioActivo);
 		//lista para devolver la seleccion de usuarios

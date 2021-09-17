@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-
+import com.bean.GestionUsuariosBean;
 
 import com.capa2LogicaNegocio.Usuario;
 import com.capa2LogicaNegocio.GestionUsuarioService;
@@ -18,6 +18,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;	//JEE8
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+
 
 
 @Named(value="gestionUsuario")		//JEE8
@@ -37,6 +38,9 @@ public class GestionUsuarioBean implements Serializable{
 	
 	private Usuario usuarioSeleccionado;
 	private boolean modoEdicion=false;
+	private String usuario;
+	private String contrasenia;
+	private String rol;
 	public GestionUsuarioBean() {
 		super();
 	}
@@ -73,11 +77,18 @@ public class GestionUsuarioBean implements Serializable{
 		return "DatosUsuario?faces-redirect=true&includeViewParams=true";
 		
 	}
+	
+	
+
+	
+		
+	
+	
 	//Pasar a modo 
 	public String salvarCambios() {
 		
 		if (usuarioSeleccionado.getId()==null) {
-			usuarioSeleccionado.setActivo(true);
+			usuarioSeleccionado.setActivo("true");
 			
 			Usuario usuarioNuevo;
 			try {
@@ -158,6 +169,24 @@ public class GestionUsuarioBean implements Serializable{
 	}
 	public void setModoEdicion(boolean modoEdicion) {
 		this.modoEdicion = modoEdicion;
+	}
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public String getContrasenia() {
+		return contrasenia;
+	}
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+	public String getRol() {
+		return rol;
+	}
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
 		
 	

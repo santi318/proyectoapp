@@ -29,14 +29,14 @@ public class UsuarioEmpresa implements Serializable {
 	private String profesion;
 	private String email;
 	private String rolUsuario;
-	private boolean activo;
+	private String activo;
 
 	public UsuarioEmpresa() {
 		super();
 	}
 
 	public UsuarioEmpresa(String nombre, String apellido, String cedula, String usuarioCuenta,
-			String contrasenia, String instituto, String profesion, String email, String rolUsuario) {
+			String contrasenia, String instituto, String profesion, String email, String rolUsuario, String activo) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -47,7 +47,7 @@ public class UsuarioEmpresa implements Serializable {
 		this.profesion = profesion;
 		this.email = email;
 		this.rolUsuario = rolUsuario;
-		
+		this.activo = activo;
 	}
 
 	public Long getId() {
@@ -130,11 +130,11 @@ public class UsuarioEmpresa implements Serializable {
 		this.rolUsuario = rolUsuario;
 	}
 
-	public boolean getActivo() {
+	public String getActivo() {
 		return activo;
 	}
 
-	public void setActivo(boolean activo) {
+	public void setActivo(String activo) {
 		this.activo = activo;
 	}
 

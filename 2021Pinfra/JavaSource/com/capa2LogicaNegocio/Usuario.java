@@ -36,7 +36,7 @@ public class Usuario {
 	private String rolUsuario;
 	
 	@NotNull
-	private boolean activo;
+	private String activo;
 	
 
 	private String instituto;
@@ -59,7 +59,7 @@ public class Usuario {
 			String usuarioCuenta,
 			String contrasenia, String instituto,
 			String profesion,String email,
-			String rolUsuario,boolean activo) {
+			String rolUsuario,String activo) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -175,12 +175,12 @@ public class Usuario {
 	}
 
 
-	public boolean getActivo() {
+	public String getActivo() {
 		return activo;
 	}
 
 
-	public void setActivo(boolean activo) {
+	public void setActivo(String activo) {
 		this.activo = activo;
 	}
 

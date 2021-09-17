@@ -27,6 +27,22 @@
 		<h:panelGrid columns="2">
 			<p:outputLabel value="Nombre" />
 			<p:inputText id="nombre" value="#{gestionUsuarios.criterioNombre}" />
+			
+			
+				<p:outputLabel value="Rol" />
+		<p:selectOneMenu id="rolUsuario" value="#{gestionUsuarios.criterioRol}">
+   				<f:selectItem itemValue="" itemLabel="Todos" />
+   				<f:selectItem itemValue="Administrador" itemLabel="Administrador" />
+   				<f:selectItem itemValue="Común" itemLabel="Común" />
+   				<f:selectItem itemValue="Empleado" itemLabel="Empleado" />
+			</p:selectOneMenu>
+			
+					<p:outputLabel value="Estado" />
+		<p:selectOneMenu id="activo" value="#{gestionUsuarios.criterioActivo}">
+   				<f:selectItem itemValue="" itemLabel="Todos" />
+   				<f:selectItem itemValue="true" itemLabel="Activo" />
+   				<f:selectItem itemValue="false" itemLabel="Inactivo" />
+			</p:selectOneMenu>
 
 					
 			
@@ -41,6 +57,7 @@
 	<h3><h:outputLabel value="Usuarios seleccionados"/></h3>
 	<p:dataTable value="#{gestionUsuarios.usuariosSeleccionados}"
 		var="usuario"
+		tableStyle="width:auto"
 		   styleClass = "employeeTable"
    		   headerClass = "employeeTableHeader">
    		   
@@ -81,7 +98,7 @@
 		</p:column>
 		
 		<p:column sortBy="#{usuario.profesion}">
-			<f:facet name="header">Profesión</f:facet>
+			<f:facet name="header" >Profesión</f:facet>
       		#{usuario.profesion}
 		</p:column>
 		
@@ -109,7 +126,7 @@
                
 	         </p:commandLink>
 	      
-			<h:link value="Ver detalle" outcome="DatosUsuario.xhtml">
+			<h:link value="Ver detalle" outcome="DatosUsuario.xhtml" >
     			<f:param name="id" value="${usuario.id}" />
     			<f:param name="modalidad" value="view" />
 			</h:link>

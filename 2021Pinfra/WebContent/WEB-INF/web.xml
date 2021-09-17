@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
- <display-name>AEWeb3</display-name>
+ <display-name>EjemploJSF2PF</display-name>
   <welcome-file-list>
     <welcome-file>index.xhtml</welcome-file>
   </welcome-file-list>
@@ -27,8 +27,12 @@
   <servlet-name>Faces Servlet</servlet-name>
   <url-pattern>/faces/*</url-pattern>
  </servlet-mapping>
+  <servlet-mapping>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
   <context-param>
     <param-name>primefaces.THEME</param-name>
     <param-value>bootstrap</param-value>
-  </context-param>
+  </context-param> 
 </web-app>

@@ -17,5 +17,5 @@ public class UsuarioEmpresa_ {
 	public static volatile SingularAttribute<UsuarioEmpresa, String> email;
 	public static volatile SingularAttribute<UsuarioEmpresa, String> profesion;
 	public static volatile SingularAttribute<UsuarioEmpresa, String> rolUsuario;
-	public static volatile SingularAttribute<UsuarioEmpresa, Boolean> activo;
+	public static volatile SingularAttribute<UsuarioEmpresa, String> activo;
 }
