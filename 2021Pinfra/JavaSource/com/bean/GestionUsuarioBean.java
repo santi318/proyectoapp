@@ -3,22 +3,14 @@ package com.bean;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import java.io.Serializable;
-import java.util.ArrayList;
-
-import javax.inject.Inject;
 import javax.inject.Named;
-import com.bean.GestionUsuariosBean;
-
 import com.capa2LogicaNegocio.Usuario;
 import com.capa2LogicaNegocio.GestionUsuarioService;
 import com.exception.PersistenciaException;
 import com.utils.ExceptionsTools;
-
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;	//JEE8
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-
 
 
 @Named(value="gestionUsuario")		//JEE8
