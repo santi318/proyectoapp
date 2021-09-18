@@ -118,5 +118,5 @@ public class GestionUsuarioService implements Serializable{
 		return us;
 		
 	}
-
 }
+
